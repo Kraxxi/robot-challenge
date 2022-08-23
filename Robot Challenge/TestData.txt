@@ -1,0 +1,145 @@
+﻿																						#################################
+																						#								#
+																						#								#
+																						#			Test Data			#
+																						#								#
+																						#								#
+																						#################################
+
+1. Can't fall off North:
+
+PLACE 0,4,NORTH
+MOVE
+REPORT
+
+Output: 0,4,NORTH
+-----------------------------
+2. Can't fall off South:
+
+PLACE 0,0,SOUTH
+MOVE
+REPORT
+
+Output: 0,0,SOUTH
+-----------------------------
+3. Can't fall off East
+
+PLACE 0,4,EAST
+MOVE
+REPORT
+
+Output: 0,4,EAST
+-----------------------------
+4. Can't fall off West
+
+PLACE 0,0,WEST
+MOVE
+REPORT
+
+Output: 0,0,WEST
+-----------------------------
+5. Can rotate right (and loop)
+
+PLACE 0,0,WEST
+RIGHT
+RIGHT
+RIGHT
+RIGHT
+RIGHT
+REPORT
+
+Output: 0,0,NORTH
+-----------------------------
+6. Can rotate left (and loop)
+
+PLACE 0,0,WEST
+LEFT
+LEFT
+LEFT
+LEFT
+LEFT
+REPORT
+
+Output: 0,0,SOUTH
+-----------------------------
+7. Can move in correct direction before and after turning
+
+PLACE 0,0,NORTH
+MOVE
+MOVE
+RIGHT
+MOVE
+MOVE
+LEFT
+MOVE
+MOVE
+REPORT
+
+Output: 2,4,NORTH
+-----------------------------
+8. Robot can't be placed out of bounds
+
+PLACE 5,5,WEST
+
+Output: Invalid Position. Please place within 0-4, 0-4
+-----------------------------
+9. Only selected robot moves
+
+PLACE 0,0,NORTH
+MOVE
+MOVE
+REPORT
+PLACE 4,4,SOUTH
+ROBOT 2
+RIGHT
+MOVE
+REPORT
+ROBOT 1
+REPORT
+
+OutputA:
+There are 1 robots.
+Active Robot: Robot 1
+0,2,NORTH
+
+OutputB:
+There are 2 robots.
+Active Robot: Robot 2
+3,4,WEST
+
+OutputC:
+There are 2 robots.
+Active Robot: Robot 1
+0,2,NORTH
+-----------------------------
+10. First placed robot is the default robot
+
+PLACE 0,0,NORTH
+PLACE 4,4,SOUTH
+MOVE
+REPORT
+
+Output:
+There are 2 robots.
+Active Robot: Robot 1
+0,1,NORTH
+-----------------------------
+11. Can only select existing robots
+
+PLACE 0,0,NORTH
+PLACE 4,4,SOUTH
+PLACE 0,4,SOUTH
+ROBOT 4
+
+Output: Invalid index, there are 3 robots. Select from 1 - 3
+-----------------------------
+12. Can't select negative or zero indexes
+
+PLACE 0,0,NORTH
+PLACE 4,4,SOUTH
+PLACE 0,4,SOUTH
+ROBOT 0
+ROBOT -1
+
+OutputA: Invalid index, there are 3 robots. Select from 1 - 3
+OutputB: Invalid index, there are 3 robots. Select from 1 - 3
