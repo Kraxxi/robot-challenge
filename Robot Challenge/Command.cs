@@ -11,8 +11,6 @@
         //Serves effectively as a constructor
         public void Initialize(string name, int argCount)
         {
-            Console.WriteLine($"Initializing {name} with {argCount} arguments");
-
             CommandName = name;
             ArgumentCount = argCount;
         }
