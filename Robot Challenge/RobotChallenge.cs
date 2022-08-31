@@ -19,6 +19,11 @@ namespace Robot_Challenge
             RegisterCommand("ROBOT", 1, new RobotCommand());
             RegisterCommand("LEFT", 0, new RotateLeft());
             RegisterCommand("RIGHT", 0, new RotateRight());
+            RegisterCommand("WALK", 0, new WalkCommand());
+            RegisterCommand("RUN", 0, new RunCommand());
+            RegisterCommand("CHARGE", 0, new ChargeCommand());
+            RegisterCommand("STRAFELEFT", 0, new StrafeLeftCommand());
+            RegisterCommand("STRAFERIGHT", 0, new StrafeRightCommand());
 
             Console.WriteLine("Program Ready!");
             PrintCommands();

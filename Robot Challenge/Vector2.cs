@@ -26,7 +26,8 @@
 
         //Can't use a switch statement here as Cardinal Directions are not constants
         public static Vector2 RotateRight(Vector2 input)
-        {
+        {               
+
             if (input == North)
                 return East;
 

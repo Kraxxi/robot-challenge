@@ -18,6 +18,7 @@
             //User-friendly reporting of 1-based index
             Console.WriteLine($"Active Robot: Robot {ctx.ToyRobots.IndexOf(activeRobot) + 1}");
             Console.WriteLine($"{activeRobot.Position},{activeRobot.Direction.ToCardinalString()}");
+            Console.WriteLine($"Movement Mode: {activeRobot.GetMoveMode()}");
         }
     }
 }
